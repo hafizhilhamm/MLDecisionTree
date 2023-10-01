@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.preprocessing import LabelEncoder
+from sklearn.naive_bayes import GaussianNB
 
 print("Age category : Young Adult (18-25), Middle Aged (25-45), Aged (45>)")
 df = pd.read_csv('jobacceptance.csv') 
@@ -14,7 +15,7 @@ df['Education'] = label_edu.fit_transform(df['Education'])
 X = df[['Age', 'Education']]
 y = df['Accepted?']
 
-clf = DecisionTreeClassifier()
+clf = GaussianNB()
 
 clf.fit(X, y)
 
